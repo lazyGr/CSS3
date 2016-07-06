@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>纯css制作小男孩</title>
+    <style>
+        body{ margin:0; background: #acd }
+        .clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden; overflow:hidden;}
+        .clearfix { zoom:1;}
+        div{ margin:0 auto; }
+        section.content{ margin:0 auto; text-align: center; padding-left:100px; }
+        @-webkit-keyframes shake{
+            0%{transform:rotate(0deg);}
+            20%{transform:rotate(18deg);}
+            40%{transform:rotate(36deg);}
+            60%{transform:rotate(-18deg);}
+            80%{transform:rotate(-36deg);}
+            100%{transform:rotate(0deg);}
+        }
+        @-webkit-keyframes shake_h_r{
+            0%{transform:rotate(0deg);}
+            /*20%{transform:translateX(10px);}*/
+            40%{transform:rotate(15deg);}
+            /*60%{transform:translateX(30px);}*/
+            80%{transform:rotate(18deg);}
+            100%{transform:rotate(20deg);}
+        }
+        @-webkit-keyframes shake_h_l{
+            0%{transform:rotate(90deg);}
+            /*20%{transform:translateX(10px);}*/
+            40%{transform:rotate(85deg);}
+            /*60%{transform:translateX(30px);}*/
+            80%{transform:rotate(80deg);}
+            100%{transform:rotate(70deg);}
+        }
+        @-webkit-keyframes run{
+            0%{ transform: translate3d(0,0,0); }
+            20%{ transform: translate3d(30px,10px,5px); }
+            40%{ transform: translate3d(60px,10px,5px); }
+        }
+        @-webkit-keyframes long{
+            from{ transform:scaleY(1);}
+            to{ transform:scale(1.5);}
+        }
+        .bagContent{ -webkit-animation: shake 5s infinite; }
+        .bagContent .line{ width: 2px; height: 100px; background: #000 }
+        .bagContent .bag{ width: 40px; height: 60px; background: #ff0000; border-radius: 60% 60% 30% 30%; }
+        .girl{ width: 380px; height: 450px;margin:20px auto; -webkit-animation:run 5s infinite; }
+        /*.girl .hair{ width: 90px; height: 95px; background: #000}*/
+        .girl .head{ width: 80px; height: 80px; border-radius: 50%; background: #f8d6b7; position: relative; }
+        .girl .head:after{ content: ''; position: absolute; top:-18px; width: 1px; height: 20px; background: #000; transform: rotate(7deg); }
+        .girl .head:before{ content: ''; position: absolute; top:-15px; width: 1px; height: 20px; background: #000; transform: rotate(-10deg);left: 30px }
+        .eye>div{ width: 20px; height: 10px; border-radius: 50%; background: #fff; margin-top: 30px; border: 1px solid #484848}
+        .eye>div.eye_r{ float: right; margin-right: 10px }
+        .eye>div.eye_l{ float: left; margin-left: 10px}
+        .eye>div>div{ width: 10px;height: 10px;border-radius: 50%; background: #000; margin:0 auto; }
+        .mouth{ width: 20px; height: 10px; border: 1px solid #ff0000; position: absolute; top: 70%; left:37%;border-radius: 0 0 50% 50%;}
+        .ear_r{ position: absolute;right: -9px; width: 10px; height: 15px; background:#f8d6b7;border-radius: 0 50% 50% 0; top: 40%;}
+        .ear_l{position: absolute; left: -9px; width: 10px; height: 15px; background:#f8d6b7;border-radius: 50% 0 0 50%; top: 40%;}
+        .girl .neck{ width: 15px; height: 5px; background:#f8d6b7; margin-top: -1px}
+        .girl .body_up{ width: 80px; height: 100px; background:#ff0000; border-radius: 20% 20% 0 0; position: relative; }
+        .girl .body_up:after{ content: 'A';position: absolute;top: 40%;left: 40%;font-size: 30px;color: #fff; }
+        .girl .body_up .shirt{ width: 40px; height: 20px; border-radius: 0 0 50% 50%; background:#f8d6b7; }
+        .hand_r,.hand_l{ width: 15px; height: 60px; background:#f8d6b7; position: absolute; }
+        .hand_r{ right: 10px; top: 30px; -webkit-animation: shake_h_r 5s infinite;}
+        .hand_r:after,.hand_l:after{ content: ''; position: absolute; bottom:-3px; right: -6px; width: 30px; height: 30px; background: #000; border-radius: 50%}
+        .hand_l{ left: -34px; top: -1px; /*transform: rotate(90deg);*/ /*-webkit-animation: long 5s infinite;*/-webkit-animation: shake_h_l 5s infinite;}
+        .girl .body_bottom{ width: 80px }
+        .girl .body_bottom>div{ background: #ffff6f; width: 38px; height: 50px; }
+        .pants_r,.foot_r,.shoes_r{ float: right; }
+        .bagContent,.girl,.pants_l,.foot_l,.shoes_l{ float: left; }
+        .girl .foot{ width: 60px }
+        .girl .foot>div{ background: #f8d6b7; width: 20px; height: 30px;/* -webkit-animation: walk 5s infinite;*/}
+        .girl .shoes{ width: 80px }
+        .girl .shoes>div{ background: #004b97; width: 30px; height: 12px;}
+        .shoes_r{ border-radius: 0 50% 10% 0;}
+        .shoes_l{ border-radius: 50% 0 0 10%;}
+
+    </style>
+</head>
+<body>
+    <section class="content clearfix">
+        <div class="bagContent">
+            <div class="line"></div>
+            <div class="bag"></div>
+        </div>
+        <div class="girl">
+            <div class="head">
+                <div class="eye clearfix">
+                    <div class="eye_r"><div></div></div>
+                    <div class="eye_l"><div></div></div>
+                </div>
+                <div class="mouth"></div>
+                <div class="ear_r"></div>
+                <div class="ear_l"></div>
+            </div>
+            <div class="neck"></div>
+            <div class="bodyContent">
+                <div class="body_up">
+                    <div class="shirt"></div>
+                    <div class="hand_r"></div>
+                    <div class="hand_l"></div>
+                </div>
+                <div class="body_bottom clearfix">
+                    <div class="pants_r"></div>
+                    <div class="pants_l"></div>
+                </div>
+                <div class="foot clearfix">
+                    <div class="foot_r"></div>
+                    <div class="foot_l"></div>
+                </div>
+                <div class="shoes clearfix">
+                    <div class="shoes_r"></div>
+                    <div class="shoes_l"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
